@@ -14,4 +14,8 @@ def create_app(config_object=Config):
 
     db.init_app(app)
 
+# Register blueprints
+    from home import home_bp
+    app.register_blueprint(home_bp)
+
     return app
