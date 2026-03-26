@@ -11,13 +11,13 @@ class AuthService:
     def user_payload(user):
         return {
             "id": str(user.id),
-            "username": user.name,
+            "username": user.username,
             "email": user.email
         }
 
     @staticmethod
     def register(data):
-        required_fields = ["username", "email", "password:", "confirm_password"]
+        required_fields = ["username", "email", "password", "confirm_password"]
         
         for field in required_fields:
             if field not in data:
@@ -73,7 +73,13 @@ class AuthService:
 
     @staticmethod
     def refresh(identity):
-        user = User.query.get(identity)
+        try:
+            uuid_user = uuid.UUID(identity)
+        except ValueError:
+            return {
+                "message": "Ivalid User Data"
+            }, 400
+        user = User.query.get(uuid_user)
         access = create_access_token(identity=str(user.id))
         return {
             "access": access

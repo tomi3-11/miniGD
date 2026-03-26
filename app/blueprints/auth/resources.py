@@ -2,6 +2,8 @@ from flask_restful import Resource
 from flask import jsonify, request
 from .services import AuthService
 from flask_jwt_extended import jwt_required, get_jwt_identity
+from app.models import User
+import uuid
 
 
 class RegisterResource(Resource):
@@ -36,7 +38,15 @@ class CurrentUserResource(Resource):
     @jwt_required()
     def get(self):
         identity = get_jwt_identity()
-        user = User.query.get(identity)
+
+        try:
+            user_uuid = uuid.UUID(identity)  
+        except ValueError:
+            return jsonify({
+                "error": "Invalid user ID"
+            }), 400
+
+        user = User.query.get(user_uuid)
 
         if not user:
             return jsonify({
