@@ -1,10 +1,10 @@
 from flask import Flask
-from flask_sqlalchemy import SQLALCHEMY
+from flask_sqlalchemy import SQLAlchemy
 from config import Config
 import os
 
 
-db = SQLALCHEMY()
+db = SQLAlchemy()
 
 
 def create_app(config_object=Config):
@@ -12,6 +12,6 @@ def create_app(config_object=Config):
 
     app.config.from_object(config_object)
 
-    db.init(app)
+    db.init_app(app)
 
     return app
