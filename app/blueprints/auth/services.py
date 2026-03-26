@@ -1,8 +1,9 @@
 from app.models import User
-from app import db
+from app import db, mail
 import uuid
 from flask_jwt_extended import create_access_token, create_refresh_token
 from datetime import datetime, timedelta
+from flask_mail import Message
 
 
 class AuthService:
@@ -93,4 +94,50 @@ class AuthService:
         }, 200
 
 
+    @staticmethod
+    def request_reset_password(data):
+        user = User.query.filter_by(email=data["email"]).first()
+        if not user:
+            return {
+                "message": "User not found"
+            }, 404
 
+        token = str(uuid.uuid4())
+        user.reset_token = token
+        user.reset_token_expiry = datetime.utcnow() + timedelta(minutes=30)
+
+        db.session.commit()
+
+        # link to use for redirection
+        url = f"http://localhost:5000/api/auth/reset_password?token={token}"
+
+        msg = Message(
+            subject="Password Reset",
+            recipients=[user.email],
+            body=f"Use this link to reset your password: {url}"
+        )
+        mail.send(msg)
+
+        return {
+            "message": "Password reset email sent."
+        }, 200
+
+
+    @staticmethod
+    def reset_password(data):
+        user.User.query.filter_by(reset_token=data["token").first()
+
+        if not user or user.reset_token_expiry < datetime.utcnow():
+            return {
+                "message": "Invalid or expired token"
+            }. 400
+
+        user.set_password(data["new_password"])
+        user.reset_token = None
+        user.reset_token_expiry = None
+
+        db.session.commit()
+        return {
+            "masseage": "Password reset successfully"
+        }, 200
+        
