@@ -1,0 +1,28 @@
+# Mini File storage like Google drive 
+## Project Structure
+
+```cpp
+.
+├── app
+│   ├── blueprints
+│   │   ├── auth
+│   │   └── home
+│   ├── __init__.py
+│   ├── models.py
+├── config.py
+├── documentation
+│   └── auth.md
+├── instance
+│   └── data.db
+├── main.py
+├── migrations
+├── pyproject.toml
+├── README.md
+├── requirements.txt
+├── run.py
+└── uv.lock
+
+13 directories, 20 files
+```
+
+documented by: [Tom](https://github.com/tomi3-11)
