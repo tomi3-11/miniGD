@@ -87,5 +87,4 @@ class AuthService:
         }, 200
 
 
-    @staticmethod
 
