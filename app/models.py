@@ -1,8 +1,9 @@
 from app import db
+from datetime import datetime
 import uuid
 from werkzeug.security import check_password_hash, generate_password_hash
 
-class User(db.model):
+class User(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
