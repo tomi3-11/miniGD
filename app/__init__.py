@@ -4,11 +4,13 @@ from config import Config
 import os
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
+from flask_mail import Mail
 
 
 db = SQLAlchemy()
 migrate = Migrate()
 jwt = JWTManager()
+mail = Mail()
 
 
 def create_app(config_object=Config):
@@ -19,6 +21,7 @@ def create_app(config_object=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
+    mail.init_app(app)
 
     # Register blueprints
     from app.blueprints.home import home_bp
