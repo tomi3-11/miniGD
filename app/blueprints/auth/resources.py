@@ -55,3 +55,18 @@ class CurrentUserResource(Resource):
 
         data = AuthService.user_payload(user)
         return jsonify(data, 200)
+
+
+class PasswordResetRequestResource(Resource):
+    def post(self):
+        data = request.get_json()
+        result, status = AuthService.reset_request_password(data)
+        return (result, status)
+
+
+class PasswordResetConfirmResource(Resource):
+    def post(self):
+        data = request.get_json()
+        result, status = AuthService.reset_password(data)
+        return jsonify(result, status)
+    
