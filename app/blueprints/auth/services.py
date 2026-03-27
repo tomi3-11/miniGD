@@ -125,12 +125,12 @@ class AuthService:
 
     @staticmethod
     def reset_password(data):
-        user.User.query.filter_by(reset_token=data["token"]).first()
+        user = User.query.filter_by(reset_token=data["token"]).first()
 
         if not user or user.reset_token_expiry < datetime.utcnow():
             return {
                 "message": "Invalid or expired token"
-            }. 400
+            }, 400
 
         user.set_password(data["new_password"])
         user.reset_token = None

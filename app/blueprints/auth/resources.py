@@ -60,7 +60,7 @@ class CurrentUserResource(Resource):
 class PasswordResetRequestResource(Resource):
     def post(self):
         data = request.get_json()
-        result, status = AuthService.reset_request_password(data)
+        result, status = AuthService.request_reset_password(data)
         return (result, status)
 
 

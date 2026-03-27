@@ -12,6 +12,8 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
 
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    reset_token = db.Column(db.String(255), nullable=True)
+    reset_token_expiry = db.Column(db.DateTime, nullable=True)
 
     def set_password(self, password):
         self.password_hash = generate_password_hash(password)
