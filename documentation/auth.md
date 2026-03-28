@@ -34,17 +34,27 @@ Output:
 ]
 ```
 
+### Auth Blueprint
+All auth blueprint
+
+Root: `http://localhost:5000/api/auth`
+
+1. Registration.
+Endpoint: `/register`<br>
 Command:
 ```sh
 curl -X POST http://localhost:5000/api/auth/register \ 
      -H 'Content-Type: application/json' \ 
      -d '{username: testuser, email: xmusstores@gmail.com, password: testpassword, confirm_password: testpassword}' | jq
 
-
 ```
+
+Output:
+```json
 [
   {
     "message": "User registered successfully"
   },
   201
 ]
+```
