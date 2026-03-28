@@ -33,3 +33,18 @@ Output:
   200
 ]
 ```
+
+Command:
+```sh
+curl -X POST http://localhost:5000/api/auth/register \ 
+     -H 'Content-Type: application/json' \ 
+     -d '{username: testuser, email: xmusstores@gmail.com, password: testpassword, confirm_password: testpassword}' | jq
+
+
+```
+[
+  {
+    "message": "User registered successfully"
+  },
+  201
+]
