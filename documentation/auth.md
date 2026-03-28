@@ -1,4 +1,18 @@
 # Authentication Documentation
+This is a documentation for the authentication blueprint
+
+## Auth endpoints
+Root URL: `http://localhost:5000/api/auth/`
+
+| s/No | Method | Endpoint       | Explanation       |
+|------|--------|----------------|-------------------|
+| 1    | `GET`  | `/`            | Home url, gives information about the api |
+| 2    | `POST` | `/register`    | Accepts some json then creates a user account |
+| 3    | `POST` | `/login`       | Accepts some json if correct logs in the user and provide them with tokens |
+| 4    | `POST` | `/token/refresh`       | this refreshes the access token provided the refresh token |
+| 5    | `POST` | `/me`       | returns user details |
+| 6    | `POST` | `/password/reset`       | This request for a new password given an email |
+| 7    | `POST` | `/password/reset/confirm`       | This confirms the new password reset |
 
 
 ## `JSON` outputs
