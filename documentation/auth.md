@@ -20,6 +20,7 @@ Here are the output for the following commands:
 
 ### Home Blueprint
 1. home url
+
 Endpoint: `/`
 
 command: `curl -X GET http://localhost:5000/`<br>
@@ -40,6 +41,7 @@ All auth blueprint
 Root: `http://localhost:5000/api/auth`
 
 1. Registration.
+
 Endpoint: `/register`<br>
 Command:
 ```sh
@@ -59,6 +61,7 @@ Output:
 ]
 ```
 2. Login.
+
 Endpoint: `/login`<br>
 Command:
 ```sh
