@@ -62,7 +62,7 @@ Output:
 Endpoint: `/login`<br>
 Command:
 ```sh
-curl -X POST http://localhost:5000/api/auth/ \ 
+curl -X POST http://localhost:5000/api/auth/login \ 
      -H 'Content-Type: application/json' \ 
      -d '{"email": "xmusstores@gmail.com", "password": "testpassword"}' | jq
 
