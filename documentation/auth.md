@@ -73,12 +73,12 @@ Output:
 [
   {
     "tokens": {
-      "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDgxNjk2MiwianRpIjoiNTZkNTdjZDAtZTEyZC00NDM3LWFlNmEtOGI1ZGMyYjg2YjBiIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjM4ZTE1MWRhLWU3MDktNDBlNi04YmYyLWJkMWU4Yjg1NGZkMiIsIm5iZiI6MTc3NDgxNjk2MiwiY3NyZiI6IjJiNWRjNjZhLWI1N2MtNDRmYi04YzNkLTE5YWJiYTQ0MmMzMyIsImV4cCI6MTc3NDgyMDU2Mn0.2xn5DA97WbBMBDpCVNVsl4_FtMMFTC5s6BudbpfN0V8",
-      "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDgxNjk2MiwianRpIjoiZjNiZmUxMTktNTA0NC00M2I0LTgwZDEtMGViOWI2ZjY2NjkwIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIzOGUxNTFkYS1lNzA5LTQwZTYtOGJmMi1iZDFlOGI4NTRmZDIiLCJuYmYiOjE3NzQ4MTY5NjIsImNzcmYiOiJmMzg2YTFiNy05MzMwLTQ1OWUtYTU1NC0wMWIxYTIxNGU2ZTUiLCJleHAiOjE3NzU0MjE3NjJ9.PoP3HnFXojcx_sc-7ZHFGBE0lrHt__S4vLSCygOU7jU"
+      "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVC..."
+      "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
     },
     "user": {
       "email": "xmusstores@gmail.com",
-      "id": "38e151da-e709-40e6-8bf2-bd1e8b854fd2",
+      "id": "38e151da...",
       "username": "testuser"
     }
   },
