@@ -88,3 +88,24 @@ Output:
   200
 ]
 ```
+3. User profile.
+
+Endpoint: `/me`<br>
+Command:
+```sh
+curl -X GET http://localhost:5000/api/auth/me \ 
+     -H 'Authorization: Bearer <Access Token>' \ 
+
+```
+
+Output:
+```json
+[
+  {
+    "email": "xmusstores@gmail.com",
+    "id": "38e151da...",
+    "username": "testuser"
+  },
+  200
+]
+```
