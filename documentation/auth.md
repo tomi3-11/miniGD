@@ -109,3 +109,22 @@ Output:
   200
 ]
 ```
+4. Refresh token.
+
+Endpoint: `/token/refresh`<br>
+Command:
+```sh
+curl -X POST http://localhost:5000/api/auth/token/refresh \ 
+     -H 'Authorization: Bearer <Refresh Token>'  
+
+```
+
+Output:
+```json
+[
+  {
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc3NDg5NjIwNiwianRpIjoiMDdjNTJkZGYtNTA3ZS00NDc2LWI0NjUtMTE5YTQzNDllYWUyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjM4ZTE1MWRhLWU3MDktNDBlNi04YmYyLWJkMWU4Yjg1NGZkMiIsIm5iZiI6MTc3NDg5NjIwNiwiY3NyZiI6ImQ2OGM0NTA0LTMzODktNDgyMi1iNjUxLTRjNjEyMGM0NDZhYyIsImV4cCI6MTc3NDg5OTgwNn0.Gmaw5XhVX5bupMIKbYeELHn9tgsn4vfySZHQM0D08jo"
+  },
+  200
+]
+```
