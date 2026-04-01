@@ -70,3 +70,8 @@ class PasswordResetConfirmResource(Resource):
         result, status = AuthService.reset_password(data)
         return jsonify(result, status)
     
+
+class LogoutResource(Resource):
+    def get(self):
+        result, status = AuthService.logout()
+        return jsonify(result, status)
