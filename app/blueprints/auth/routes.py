@@ -1,4 +1,4 @@
-from .resources import RegisterResource, LoginResource, TokenRefreshResource, CurrentUserResource, PasswordResetRequestResource, PasswordResetConfirmResource
+from .resources import RegisterResource, LoginResource, TokenRefreshResource, CurrentUserResource, PasswordResetRequestResource, PasswordResetConfirmResource, LogoutResource
 from flask_restful import Api
 
 def register_blueprint(bp):
@@ -11,3 +11,4 @@ def register_blueprint(bp):
     api.add_resource(CurrentUserResource, "/me")
     api.add_resource(PasswordResetConfirmResource, "/password/reset/confirm")
     api.add_resource(PasswordResetRequestResource, "/password/reset")
+    api.add_resource(LogoutResource, "/logout")
