@@ -146,3 +146,44 @@ Output:
   200
 ]
 ```
+6. Password Reset Request.
+
+Endpoint: `/password/reset`br>
+Command:
+```sh
+curl -X POST http://localhost:5000/api/auth/password/reset \
+    -H 'Content-Type: application/json'
+    -d '{"email": "xmusstores@gmail.com"}' | jq
+
+```
+
+Output:
+```json
+{
+  "message": "Password reset email sent."
+}
+```
+7. Password Reset Confirm.
+
+Endpoint: `/password/reset/confirm`br>
+Command:
+```sh
+curl -X POST http://localhost:5000/api/auth/password/reset/confirm \
+    -H 'Content-Type: application/json'
+    -d '{"token": "34hjdkfj4jh....", "new_password": "newpassword..."}' | jq
+
+```
+
+Output:
+```json
+[
+  {
+    "masseage": "Password reset successfully"
+  },
+  200
+]
+```
+
+That is it for authentication docs.
+
+documented by: (https://github.com/tomi3-11)[Tom]
