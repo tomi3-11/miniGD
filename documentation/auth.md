@@ -128,3 +128,21 @@ Output:
   200
 ]
 ```
+5. Logout.
+
+Endpoint: `/logout`br>
+Command:
+```sh
+curl http://localhost:5000/api/auth/logout 
+
+```
+
+Output:
+```json
+[
+  {
+    "message": "logged out successfully"
+  },
+  200
+]
+```
