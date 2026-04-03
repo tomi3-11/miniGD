@@ -186,4 +186,4 @@ Output:
 
 That is it for authentication docs.
 
-documented by: (https://github.com/tomi3-11)[Tom]
+documented by: [Tom](https://github.com/tomi3-11)
