@@ -21,5 +21,5 @@ COPY . .
 EXPOSE 5000
 
 # application runs
-CMD ["flask", "run"]
+CMD ["python", "run.py"]
     
