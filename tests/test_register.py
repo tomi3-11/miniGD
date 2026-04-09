@@ -1,6 +1,6 @@
 
 def test_register_user(client):
-    response = client.post("/register/", json={
+    response = client.post("/api/auth/register", json={
         "username": "user",
         "email": "user@example.com",
         "password": "password123",
@@ -8,4 +8,4 @@ def test_register_user(client):
     })
 
     assert response.status_code == 200
-    assert response.get_json()["message"] == "User registered successfully"
+    assert response.get_json()[0]["message"] == "User registered successfully"
