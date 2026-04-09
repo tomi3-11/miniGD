@@ -50,3 +50,5 @@ def test_logout(client):
 
     assert response.status_code == 200
     assert "message" in response.get_json()[0]
+
+
