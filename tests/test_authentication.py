@@ -27,3 +27,19 @@ def test_profile(client, auth):
     response = client.get("/api/auth/me", headers=headers)
 
     assert response.status_code == 200
+    assert "email" in response.get_json()[0]
+    assert "username" in response.get_json()[0]
+    assert "id" in response.get_json()[0]
+
+
+def test_refresh_token(client, auth):
+    # Register
+    auth.register()
+    # Login
+    headers = auth.get_refresh_token()
+
+    response = client.post("/api/auth/token/refresh", headers=headers)
+
+    # test
+    assert response.status_code == 200
+    assert "access" in response.get_json()[0]
