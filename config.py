@@ -22,5 +22,5 @@ class Config:
 class TestConfig:
     TESTING = True
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
-    JWT_SECRET_KEY = "test-secret-keyljskdkfldfj"
+    JWT_SECRET_KEY = "test-secret-keyljskdkfldfjksdfksjhklsldfjkfkdhdjdsskajdfk"
     MAIL_SUPPRESS_SEND = True
