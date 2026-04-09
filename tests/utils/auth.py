@@ -18,4 +18,14 @@ class AuthAction:
         })
 
         
+    def get_access_token(self):
+        res = self.login()
+        access_token = res.get_json()[0]["tokens"]["access"]
+        return {"Authorization": f"Bearer {access_token}"}
+
+
+    def get_refresh_token(self):
+        res = self.login()
+        refresh_token = res.get_json()[0]["tokens"]["refresh"]
+        return {"Authorization": f"Bearer {refresh_token}"}
         

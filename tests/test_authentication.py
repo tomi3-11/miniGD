@@ -18,6 +18,12 @@ def test_login_success(auth):
     assert "access" in response.get_json()[0]["tokens"]
 
 
+def test_profile(client, auth):
+    # Register
+    auth.register()
+    # get access token
+    headers = auth.get_access_token()
 
+    response = client.get("/api/auth/me", headers=headers)
 
-
+    assert response.status_code == 200
