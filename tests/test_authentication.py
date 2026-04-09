@@ -43,3 +43,10 @@ def test_refresh_token(client, auth):
     # test
     assert response.status_code == 200
     assert "access" in response.get_json()[0]
+
+
+def test_logout(client):
+    response = client.get("/api/auth/logout")
+
+    assert response.status_code == 200
+    assert "message" in response.get_json()[0]
