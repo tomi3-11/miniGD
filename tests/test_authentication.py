@@ -1,31 +1,18 @@
 
-def test_register_user(client):
-    response = client.post("/api/auth/register", json={
-        "username": "user",
-        "email": "user@example.com",
-        "password": "password123",
-        "confirm_password": "password123"
-    })
+def test_register_user(auth):
+    response = auth.register()
 
     assert response.status_code == 200
     assert response.get_json()[0]["message"] == "User registered successfully"
 
 
 
-def test_login_success(client):
+def test_login_success(auth):
     # Register a user first
-    client.post("/api/auth/register", json={
-        "username": "user",
-        "email": "user@example.com",
-        "password": "password123",
-        "confirm_password": "password123"
-    })
+    auth.register()
 
-    # login now
-    response = client.post("/api/auth/login", json={
-        "email": "user@example.com",
-        "password": "password123"
-    })
+    # Login
+    response = auth.login()
 
     assert response.status_code == 200
     assert "access" in response.get_json()[0]["tokens"]

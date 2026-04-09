@@ -2,6 +2,7 @@ import pytest
 from app import create_app, db
 from app.models import User
 from config import TestConfig
+from tests.utils.auth import AuthAction
 
 @pytest.fixture
 def app():
@@ -18,3 +19,7 @@ def app():
 def client(app):
     return app.test_client()
 
+
+@pytest.fixture
+def auth(client):
+    return AuthAction(client)
