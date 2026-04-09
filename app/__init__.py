@@ -13,10 +13,14 @@ jwt = JWTManager()
 mail = Mail()
 
 
-def create_app(config_object=Config):
+def create_app(config_object=None):
     app = Flask(__name__)
 
-    app.config.from_object(config_object)
+    if config_object:
+        app.config.from_object(config_object)
+    else:
+        app.config.from_object(Config)
+        
 
     db.init_app(app)
     migrate.init_app(app, db)
