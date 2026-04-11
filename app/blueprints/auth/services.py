@@ -80,7 +80,7 @@ class AuthService:
             return {
                 "message": "Ivalid User Data"
             }, 400
-        user = User.query.get(uuid_user)
+        user = db.session.get(User, uuid_user)
         access = create_access_token(identity=str(user.id))
         return {
             "access": access

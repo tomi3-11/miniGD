@@ -4,6 +4,7 @@ from .services import AuthService
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from app.models import User
 import uuid
+from app import db
 
 
 class RegisterResource(Resource):
@@ -46,7 +47,7 @@ class CurrentUserResource(Resource):
                 "error": "Invalid user ID"
             }), 400
 
-        user = User.query.get(user_uuid)
+        user = db.session.get(User, user_uuid)
 
         if not user:
             return jsonify({
