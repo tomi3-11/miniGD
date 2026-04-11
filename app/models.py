@@ -1,5 +1,5 @@
 from app import db
-from datetime import datetime
+from datetime import datetime, UTC
 import uuid
 from werkzeug.security import check_password_hash, generate_password_hash
 
@@ -11,7 +11,7 @@ class User(db.Model):
     email = db.Column(db.String(120), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
 
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    created_at = db.Column(db.DateTime, default=datetime.now(UTC))
     reset_token = db.Column(db.String(255), nullable=True)
     reset_token_expiry = db.Column(db.DateTime, nullable=True)
 
