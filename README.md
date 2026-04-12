@@ -25,4 +25,24 @@
 13 directories, 20 files
 ```
 
+# How to run the system
+## Without Docker
+
+1. Create a virtual environment
+```sh
+python -m venv .venv
+OR 
+uv venv # if uv is installed
+```
+2. Activate the vitual env
+```sh
+source .venv/bin/activate # linux/MacOs
+.venv\Scripts\activate # windows
+```
+3. run the system
+```sh
+flask run
+```
+
+
 documented by: [Tom](https://github.com/tomi3-11)
