@@ -25,8 +25,8 @@
 13 directories, 20 files
 ```
 
-# How to run the system
-## Without Docker
+## How to run the system
+### Without Docker
 
 1. Create a virtual environment
 ```sh
@@ -39,9 +39,27 @@ uv venv # if uv is installed
 source .venv/bin/activate # linux/MacOs
 .venv\Scripts\activate # windows
 ```
-3. run the system
+3. Install required dependencies.
+```sh
+uv sync
+```
+4. run the system
 ```sh
 flask run
+```
+
+### With Docker
+1. Build images and run containers
+```sh
+docker compose up -d --build
+```
+2. Check logs
+```sh
+docker logs <container-name>
+```
+3. Stop the container
+```sh
+docker compose down
 ```
 
 
