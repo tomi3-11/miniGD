@@ -45,4 +45,17 @@ flask run
 ```
 
 
+## Running tests
+1. Make sure to be in the root directory
+2. Run the following commands
+```sh
+pytest -v 
+
+# If you get import errors, try running it as a script
+python -m pytest -v
+```
+3. Check logs 
+
+
+
 documented by: [Tom](https://github.com/tomi3-11)
