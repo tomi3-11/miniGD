@@ -5,12 +5,15 @@ import os
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
 from flask_mail import Mail
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 
 
 db = SQLAlchemy()
 migrate = Migrate()
 jwt = JWTManager()
 mail = Mail()
+limiter = Limiter(key_func=get_remote_address)
 
 
 def create_app(config_object=None):
@@ -26,6 +29,7 @@ def create_app(config_object=None):
     migrate.init_app(app, db)
     jwt.init_app(app)
     mail.init_app(app)
+    limiter.init_app(app)
 
     # Register blueprints
     from app.blueprints.home import home_bp
