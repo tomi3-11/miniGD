@@ -22,7 +22,7 @@ class FileService:
         # Upload to minio
         try:
             storage.upload_file(
-                file.file.stream,
+                file.stream,
                 object_key=object_key,
                 content_type=file.content_type
             )
@@ -31,7 +31,7 @@ class FileService:
             
         # Save metadata
         new_file = File(
-            id=file.id,
+            id=file_id,
             filename=file.filename,
             object_key=object_key,
             bucket_name="files",
@@ -49,3 +49,31 @@ class FileService:
             abort(500, "Database error")
 
         return new_file
+
+
+    @staticmethod
+    def get_user_files(user_id):
+        return File.query.filter_by(owner_id=user_id).all()
+
+
+    @staticmethod
+    def delete_file(file_id, user_id):
+        file = File.query.get_or_404(file_id)
+
+        if not file or file.owner_id != user_id:
+            abort(403, "Unauthorized")
+
+        storage.delete_file(file.object_key)
+
+        db.session.delete(file)
+        db.session.commit()
+
+
+    @staticmethod
+    def get_download_url(file_id, user_id):
+        file = File.query.get_or_404(file_id)
+
+        if not file or file.owner_id != user_id:
+            abort(403, "Unauthorized")
+
+        return storage.generate_presigned_url(file.object_key)
