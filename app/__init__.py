@@ -34,8 +34,10 @@ def create_app(config_object=None):
     # Register blueprints
     from app.blueprints.home import home_bp
     from app.blueprints.auth import auth_bp
+    from app.blueprints.files import files_bp
 
     app.register_blueprint(home_bp)
     app.register_blueprint(auth_bp)
+    app.register_blueprint(files_bp)
 
     return app

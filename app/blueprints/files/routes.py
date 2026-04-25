@@ -1,5 +1,5 @@
 from flask_restful import Api
-from app.blueprint.files.resources import FileListUploadResource, FileDownloadResource, FileDeleteResource
+from app.blueprints.files.resources import FileListUploadResource, FileDownloadResource, FileDeleteResource
 
 def register_routes(bp):
     api = Api(bp)

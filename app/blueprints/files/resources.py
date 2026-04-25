@@ -1,12 +1,14 @@
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from app.blueprint.files.service import FileService
+from app.blueprints.files.service import FileService
 from flask import request, jsonify
+from app import limiter
 
 file_service = FileService()
 
 
 class FileListUploadResource(Resource):
+    decorators = [limiter.limit("10 per minite")]
     
     @jwt_required()
     def post(self):
@@ -43,6 +45,7 @@ class FileListUploadResource(Resource):
 
 
 class FileDownloadResource(Resource):
+    decorators = [limiter.limit("5 per minite")]
     
     @jwt_required()
     def get(self, file_id):
@@ -56,6 +59,7 @@ class FileDownloadResource(Resource):
 
 
 class FileDeleteResource(Resource):
+    decorators = [limiter.limit("5 per minite")]
     
     @jwt_required()
     def delete(self, file_id):

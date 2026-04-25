@@ -2,7 +2,7 @@ import uuid
 from flask import abort
 from app import db
 from app.models import File
-from app.blueprint.storage.service import StorageService
+from app.blueprints.storage.service import StorageService
 
 storage = StorageService()
 
