@@ -20,3 +20,17 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
+
+
+class File(db.Model):
+    __tablename__ = "files"
+
+    id = db.Column(db.UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    filename = db.Column(db.String, nullable=False)
+    object_key = db.Column(db.String, nullable=False)
+    bucket_name = db.Column(db.String, nullable=False)
+    size = db.Column(db.Integer)
+    content_type = db.Column(db.String)
+    owner_id = db.Column(db.String, nullable=False)
+    create_at = db.Column(db.DateTime, default=datetime.now(UTC))
+
