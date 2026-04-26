@@ -23,10 +23,10 @@ class FileListUploadResource(Resource):
 
         saved_file = file_service.upload_file(file, user_id)
 
-        return 
+        return jsonify({
             "id": saved_file.id,
             "filename": saved_file.filename
-        }, 201
+        })
 
 
     @jwt_required()
@@ -35,12 +35,12 @@ class FileListUploadResource(Resource):
 
         files = file_service.get_user_files(user_id)
 
-        return [
+        return jsonify([
             {
                 "id": f.id,
                 "filename": f.filename
             } for f in files
-        ], 200
+        ]) 
 
 
 

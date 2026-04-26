@@ -1,6 +1,7 @@
 from minio import Minio
 from minio.error import S3Error
 import uuid
+from datetime import timedelta
 
 
 class StorageService:
@@ -42,5 +43,5 @@ class StorageService:
         return self.client.presigned_get_object(
             self.bucket,
             object_key,
-            expires=3600 # 1 hr
+            expires=timedelta(hours=1) # 1 hr
         )
