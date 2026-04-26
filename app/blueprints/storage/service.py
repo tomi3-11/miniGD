@@ -6,7 +6,7 @@ import uuid
 class StorageService:
     def __init__(self):
         self.client = Minio(
-            "localhost:9000",
+            "minio:9000",
             access_key="minioadmin",
             secret_key="minioadmin",
             secure=False
@@ -21,7 +21,7 @@ class StorageService:
         try:
             self.client.put_object(
                bucket_name= self.bucket,
-               object_name=object_name,
+               object_name=object_key,
                data=file,
                length=1,
                part_size=10 * 1024 * 1024,
