@@ -8,7 +8,7 @@ file_service = FileService()
 
 
 class FileListUploadResource(Resource):
-    decorators = [limiter.limit("10 per minite")]
+    decorators = [limiter.limit("10 per minute")]
     
     @jwt_required()
     def post(self):
@@ -45,7 +45,7 @@ class FileListUploadResource(Resource):
 
 
 class FileDownloadResource(Resource):
-    decorators = [limiter.limit("5 per minite")]
+    decorators = [limiter.limit("5 per minute")]
     
     @jwt_required()
     def get(self, file_id):
@@ -59,7 +59,7 @@ class FileDownloadResource(Resource):
 
 
 class FileDeleteResource(Resource):
-    decorators = [limiter.limit("5 per minite")]
+    decorators = [limiter.limit("5 per minute")]
     
     @jwt_required()
     def delete(self, file_id):
