@@ -19,14 +19,14 @@ class FileListUploadResource(Resource):
                 "error": "No file provided"
             }), 400
 
-        user_id = get_jwt_required()
+        user_id = get_jwt_identity()
 
         saved_file = file_service.upload_file(file, user_id)
 
-        return jsonify({
+        return 
             "id": saved_file.id,
             "filename": saved_file.filename
-        })
+        }, 201
 
 
     @jwt_required()
@@ -35,12 +35,12 @@ class FileListUploadResource(Resource):
 
         files = file_service.get_user_files(user_id)
 
-        return jsonify([
+        return [
             {
                 "id": f.id,
                 "filename": f.filename
             } for f in files
-        ])
+        ], 200
 
 
 
@@ -53,9 +53,9 @@ class FileDownloadResource(Resource):
 
         url = file_service.get_download_url(file_id, user_id)
 
-        return jsonify({
+        return {
             "url": url
-        })
+        }, 200
 
 
 class FileDeleteResource(Resource):
@@ -67,7 +67,7 @@ class FileDeleteResource(Resource):
 
         file_service.delete_file(file_id, user_id)
 
-        return jsonify({
+        return {
             "message": "Deleted"
-        })
+        }, 200
 
