@@ -21,5 +21,5 @@ COPY . .
 EXPOSE 5000
 
 # application runs
-CMD ["python", "run.py"]
+CMD ["gunicorn", "-c", "gunicorn_config.py", "wsgi:app"]
     
