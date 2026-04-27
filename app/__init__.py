@@ -7,13 +7,19 @@ from flask_jwt_extended import JWTManager
 from flask_mail import Mail
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from redis import Redis
+
+storage = Redis(host="redis", port=6379, decode_responses=True)
 
 
 db = SQLAlchemy()
 migrate = Migrate()
 jwt = JWTManager()
 mail = Mail()
-limiter = Limiter(key_func=get_remote_address)
+limiter = Limiter(
+    key_func=get_remote_address,
+    storage_uri=os.getenv("STORAGE_URL")
+)
 
 
 def create_app(config_object=None):
